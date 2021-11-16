@@ -1,0 +1,21 @@
+{
+  "root": "apps/myapp2-e2e",
+  "sourceRoot": "apps/myapp2-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/myapp2-e2e/cypress.json",
+        "devServerTarget": "myapp2:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "myapp2:serve:production"
+        }
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["myapp2"]
+}

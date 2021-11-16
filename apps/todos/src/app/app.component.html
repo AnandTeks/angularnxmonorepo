@@ -1,0 +1,44 @@
+<!-- <router-outlet name="myapp1"></router-outlet> -->
+<div style="border: 2px solid green">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="#">Brand / Logo </a>
+    <button
+      class="navbar-toggler"
+      (click)="collapse = !collapse"
+      type="button"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse" (click)="collapse = true" [hidden]="collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-light"
+            class="nav-link"
+            (click)="navigate('myapp1')"
+          >
+            App One
+          </button>
+        </li>
+        &nbsp;
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-light"
+            class="nav-link"
+            (click)="navigate('myapp2')"
+          >
+            App Two
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<router-outlet name="menu"></router-outlet>
+<router-outlet></router-outlet>
