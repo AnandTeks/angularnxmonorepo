@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'windowed-observable';
 import { NgbNavConfig } from '@ng-bootstrap/ng-bootstrap';
+import { UserFacade } from '@myorg/sharedlib';
+import { Store } from '@ngrx/store';
+import * as SharedActions from '@myorg/sharedlib';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'myorg-root',
@@ -11,13 +14,21 @@ import { NgbNavConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'shell';
-  collapse: boolean = true;
+  collapse = true;
   pathName = '';
+  users$: Observable<any> | undefined;
 
   navigate(path: string) {
     console.log(path);
     this.router.navigate([path]);
   }
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private userFacade: UserFacade,
+    private store: Store
+  ) {
+    this.store.dispatch(SharedActions.userNameInit('Test'));
+    this.users$ = this.userFacade.getSelectedUser();
+  }
 }

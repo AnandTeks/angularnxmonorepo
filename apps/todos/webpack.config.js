@@ -6,6 +6,7 @@ const share = mf.share;
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
   /* mapped paths to share */
+  '@myorg/sharedlib',
 ]);
 
 module.exports = {
@@ -32,8 +33,8 @@ module.exports = {
 
       // For hosts (please adjust)
       remotes: {
-        myapp1: 'myapp1@http://localhost:8181/remoteEntry.js',
-        myapp2: 'myapp2@http://localhost:8282/remoteEntry.js',
+        myapp1: 'myapp1@http://localhost:4201/remoteEntry.js',
+        myapp2: 'myapp2@http://localhost:4202/remoteEntry.js',
       },
 
       shared: share({

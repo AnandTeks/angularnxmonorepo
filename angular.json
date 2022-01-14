@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "projects": {
     "myapp1": {
       "projectType": "application",
@@ -398,6 +398,27 @@
       "tags": [],
       "implicitDependencies": ["todos"],
       "configFilePath": "apps/todos-e2e/project.json"
+    },
+    "sharedlib": {
+      "root": "libs/sharedlib",
+      "sourceRoot": "libs/sharedlib/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/sharedlib/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/sharedlib/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
